@@ -1,0 +1,118 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Dashboard
+      </ion-title>
+      <ion-buttons start>
+          <button ion-button icon-only (click)="scan()">
+              <ion-icon ios="ios-barcode-outline" md="md-barcode-outline"></ion-icon>
+          </button>
+        </ion-buttons>      
+      <ion-buttons end>
+        <button ion-button icon-only (click)="goToLogin()">
+          <ion-icon name="log-out"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+      <ion-content>
+          <ion-card>
+            <ion-card>
+              <ion-card-header>
+               Monthly Spending Category
+              </ion-card-header>
+              <ion-card-content>
+                <canvas #pieCanvas></canvas>
+                <div style="text-align:center">
+                    <ion-row >
+                      <ion-col>
+                  Total Spending for the Month:<b> $ {{currentMonthSpending | number:'1.2-2' }} </b> 
+                </ion-col>
+                  </ion-row>     
+                </div>
+                <div style="text-align:center">
+                    <ion-row >
+                        <ion-col col-10>
+                  Current Monthly Budget:<b> $ {{currentBudget | number:'1.2-2' }} </b> 
+                </ion-col>
+                      <ion-col col-2 id="edit" >
+                        <a (click)=editMonthlyBudget()>edit</a>
+                    </ion-col>
+                    </ion-row>     
+                    
+                  </div>
+                <div style="text-align: center">
+                  <ion-row>
+                    <ion-col col-3 id="colBudget">
+                    
+                        <span> <img id="iconItem"  src="assets/imgs/budgetIcon.png"></span> 
+                 Budget
+                 <!--<span> <img id="pencilIcon"  src="assets/imgs/pencil.png"></span> -->
+                    </ion-col>
+                <ion-col col-9>
+                    <progress-bar [progress]="loadProgress"> 
+                      
+              </progress-bar>     
+
+            </ion-col>
+            </ion-row>
+          
+            </div>
+
+    
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+            <ion-card-header>
+              Daily Spending1
+              </ion-card-header>
+              <ion-card-content>
+                <canvas #dailyBarCanvas></canvas>
+                <div style="text-align:center">
+                  Total Spending for the Week:<b> $ {{totalWeeklySpend |  number:'1.2-2' }} </b>
+                </div>
+              </ion-card-content>
+           
+            <ion-card-header>
+            Monthly Spending
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #barCanvas></canvas>
+            </ion-card-content>
+          </ion-card>
+          </ion-card>
+    
+
+ <!--  <button ion-button block >Scan Barcode</button> --> 
+    <button ion-button block (click)="goToAddExpense()">Add Expense</button>
+    <button ion-button block (click)="goToViewExpense()">View Expenses</button>
+
+  <!-- <h1>
+      <button ion-button color="dark" full round (click)="scan()">Start Scan</button>
+    </h1>
+  -->
+   <!--
+    <ion-card *ngIf="productFound">
+      <ion-card-header>
+        <h2>Price: $ {{selectedProduct.price}}</h2>
+      </ion-card-header>
+      <ion-card-content>
+        <ul>
+          <li>{{selectedProduct.plu}}</li>
+          <li>{{selectedProduct.desc}}</li>
+          <li>{{selectedProduct.remark}}</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  -->
+
+
+    </ion-content>
